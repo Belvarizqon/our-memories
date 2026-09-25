@@ -1,0 +1,350 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #87ceeb 0%,
+            #bde9ff 45%,
+            #ffd6e7 100%
+        );
+
+    color: #333;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    text-align: center;
+    padding: 70px 20px 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.small-title {
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+h1 {
+    margin-top: 12px;
+    font-size: clamp(40px, 8vw, 75px);
+    color: white;
+
+    text-shadow:
+        3px 3px 0 #5caed1,
+        0 5px 15px rgba(0,0,0,0.15);
+}
+
+h1 span {
+    color: #e63946;
+}
+
+.subtitle {
+    margin-top: 15px;
+    font-size: 16px;
+    color: white;
+}
+
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 20px auto 80px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 25px;
+
+    position: relative;
+    z-index: 3;
+}
+
+
+.photo-card {
+    background: white;
+
+    padding: 10px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.15);
+
+    transform: rotate(-1deg);
+
+    transition: 0.3s ease;
+
+    cursor: pointer;
+}
+
+.photo-card:nth-child(even) {
+    transform: rotate(1deg);
+}
+
+.photo-card:hover {
+    transform:
+        translateY(-10px)
+        rotate(0deg)
+        scale(1.03);
+}
+
+
+.photo-card img {
+    width: 100%;
+    height: 270px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+    display: block;
+}
+
+
+.caption {
+    text-align: center;
+    padding: 15px 8px 12px;
+}
+
+.caption h3 {
+    color: #4b91b5;
+    margin-bottom: 5px;
+}
+
+.caption p {
+    font-size: 13px;
+    color: #777;
+}
+
+
+/* =========================
+   CLOUDS
+========================= */
+
+.cloud {
+    position: absolute;
+
+    background: white;
+
+    width: 130px;
+    height: 45px;
+
+    border-radius: 50px;
+
+    opacity: 0.85;
+
+    z-index: 1;
+}
+
+.cloud::before,
+.cloud::after {
+    content: "";
+
+    position: absolute;
+
+    background: white;
+
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 65px;
+    height: 65px;
+
+    top: -30px;
+    left: 25px;
+}
+
+.cloud::after {
+    width: 50px;
+    height: 50px;
+
+    top: -20px;
+    right: 15px;
+}
+
+
+.cloud1 {
+    top: 100px;
+    left: 5%;
+}
+
+.cloud2 {
+    top: 230px;
+    right: 7%;
+
+    transform: scale(0.8);
+}
+
+.cloud3 {
+    top: 430px;
+    left: 15%;
+
+    transform: scale(0.65);
+}
+
+
+/* =========================
+   HEARTS
+========================= */
+
+.heart {
+    position: absolute;
+
+    font-size: 45px;
+
+    z-index: 2;
+
+    animation: floating 3s ease-in-out infinite;
+}
+
+.heart1 {
+    color: #e63946;
+    top: 160px;
+    right: 20%;
+}
+
+.heart2 {
+    color: #247ba0;
+    top: 350px;
+    left: 7%;
+}
+
+.heart3 {
+    color: #e63946;
+    top: 600px;
+    right: 8%;
+}
+
+.heart4 {
+    color: #247ba0;
+    top: 750px;
+    left: 10%;
+}
+
+
+@keyframes floating {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    padding: 30px;
+
+    color: white;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   POPUP FOTO
+========================= */
+
+.popup {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.85);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 100;
+}
+
+.popup img {
+    max-width: 90%;
+    max-height: 85%;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 0 30px rgba(255,255,255,0.3);
+}
+
+.close {
+    position: absolute;
+
+    top: 20px;
+    right: 35px;
+
+    color: white;
+
+    font-size: 50px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    header {
+        padding-top: 80px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .photo-card img {
+        height: 200px;
+    }
+
+    .caption h3 {
+        font-size: 14px;
+    }
+
+    .caption p {
+        font-size: 11px;
+    }
+
+    .heart {
+        font-size: 30px;
+    }
+
+  }
